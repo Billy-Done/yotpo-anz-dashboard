@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="300">
+<title>Q1 Final Push – Yotpo ANZ</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:      #F2EDE4;
+    --cream-card: #FAF7F2;
+    --white:      #FFFFFF;
+    --navy:       #1B2057;
+    --navy-mid:   #2C3373;
+    --navy-lt:    #5C6299;
+    --muted:      #9398B8;
+    --border:     #E4DDD3;
+    --blue:       #2B4BFF;
+    --blue-lt:    #EBF0FF;
+    --lavender:   #B8BEFF;
+    --lavender-lt:#EEEEFF;
+    --peach:      #F4C4B8;
+    --peach-lt:   #FDF2EF;
+    --mint:       #9ADBC8;
+    --mint-lt:    #EAF7F3;
+    --coral:      #E06B6B;
+    --coral-lt:   #FBEEEE;
+    --green:      #2BAF85;
+    --amber-dark: #B85F00;
+    --red:        #D94F4F;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+  }
+
+  .slide {
+    width: 1280px;
+    height: 720px;
+    padding: 24px 32px 20px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 13px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-area { display: flex; align-items: center; gap: 14px; }
+
+  .yotpo-wordmark {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    color: var(--blue);
+    letter-spacing: -0.5px;
+  }
+
+  .divider-v { width: 1px; height: 26px; background: var(--border); }
+
+  .header-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 21px;
+    color: var(--navy);
+    font-weight: 400;
+  }
+
+  .header-title em { font-style: italic; color: var(--blue); }
+
+  .header-right { display: flex; align-items: center; gap: 10px; }
+
+  .meta-chip {
+    background: var(--cream-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 13px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--navy-lt);
+  }
+
+  .live-chip {
+    background: var(--coral);
+    color: white;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .live-chip .pulse {
+    width: 6px; height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: blink 1.5s ease-in-out infinite;
+  }
+
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+  /* ── SCOREBOARD ── */
+  .scoreboard {
+    background: var(--navy);
+    border-radius: 14px;
+    padding: 15px 28px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scoreboard::after {
+    content: '';
+    position: absolute;
+    top: -30px; right: -50px;
+    width: 260px; height: 200%;
+    background: radial-gradient(ellipse at center, rgba(43,75,255,0.22) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .score-metric { flex: 1; text-align: center; position: relative; }
+
+  .score-metric + .score-metric::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10%; bottom: 10%;
+    width: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .score-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.38);
+    margin-bottom: 4px;
+  }
+
+  .score-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    line-height: 1;
+    color: white;
+  }
+
+  .score-value.blue  { color: #7B9AFF; }
+  .score-value.green { color: #5ED4A8; }
+  .score-value.sky   { color: #8ECFF5; }
+  .score-value.muted { color: rgba(255,255,255,0.28); }
+
+  .score-bar {
+    margin: 6px auto 4px;
+    width: 68%;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    animation: grow 1.2s cubic-bezier(.4,0,.2,1) forwards;
+    width: 0%;
+  }
+
+  @keyframes grow { to { width: var(--w); } }
+
+  .score-sub { font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.35); }
+  .score-sub.highlight { color: #5ED4A8; font-weight: 600; }
+
+  /* ── BOTTOM ── */
+  .bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 220px;
+    gap: 12px;
+    min-height: 0;
+  }
+
+  /* ── AE CARD ── */
+  .ae-card {
+    background: var(--cream-card);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 12px 14px;
+    position: relative;
+    animation: fadeUp .5s ease both;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-height: 0;
+  }
+
+  .ae-card:nth-child(1) { animation-delay: .05s; }
+  .ae-card:nth-child(2) { animation-delay: .12s; }
+  .ae-card:nth-child(3) { animation-delay: .19s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .ae-top-stripe {
+    position: absolute;
+    top: 0; left: 14px; right: 14px;
+    height: 2px;
+    border-radius: 0 0 2px 2px;
+  }
+
+  .ae-card.green .ae-top-stripe { background: var(--mint); }
+  .ae-card.amber .ae-top-stripe { background: var(--peach); }
+  .ae-card.red   .ae-top-stripe { background: var(--coral); }
+
+  .ae-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  .ae-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+
+  .ae-role-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 10px;
+  }
+
+  .ae-card.green .ae-role-badge { background: var(--mint-lt);  color: var(--green); }
+  .ae-card.amber .ae-role-badge { background: var(--peach-lt); color: var(--amber-dark); }
+  .ae-card.red   .ae-role-badge { background: var(--coral-lt); color: var(--red); }
+
+  .ae-stats { display: flex; align-items: baseline; gap: 8px; flex-shrink: 0; }
+
+  .ae-closed {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .ae-card.green .ae-closed { color: var(--green); }
+  .ae-card.amber .ae-closed { color: var(--amber-dark); }
+  .ae-card.red   .ae-closed { color: var(--red); }
+
+  .ae-pct { font-size: 11px; color: var(--muted); font-weight: 500; }
+  .ae-pct strong { color: var(--navy-mid); font-weight: 700; }
+
+  .ae-bar-bg {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .ae-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    animation: grow .9s .4s cubic-bezier(.4,0,.2,1) both;
+    width: 0%;
+  }
+
+  .ae-card.green .ae-bar-fill { background: var(--mint); }
+  .ae-card.amber .ae-bar-fill { background: var(--peach); }
+  .ae-card.red   .ae-bar-fill { background: var(--coral); }
+
+  .ae-deals-label {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  /* Scrollable deal list */
+  .ae-deals {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+    /* hide scrollbar visually */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .ae-deals::-webkit-scrollbar { display: none; }
+
+  .ae-deal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(228,221,211,0.6);
+  }
+
+  .ae-deal:last-child { border-bottom: none; }
+
+  .ae-deal-name {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--navy-mid);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 170px;
+  }
+
+  .ae-deal-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  /* ── RIGHT PANEL ── */
+  .right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    min-height: 0;
+  }
+
+  .bdr-card {
+    background: var(--cream-card);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 12px 14px;
+    animation: fadeUp .5s .26s ease both;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .bdr-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 14px; right: 14px;
+    height: 2px;
+    background: var(--lavender);
+    border-radius: 0 0 2px 2px;
+  }
+
+  .bdr-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+    margin-top: 4px;
+  }
+
+  .bdr-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+
+  .bdr-badge {
+    background: var(--lavender-lt);
+    color: var(--navy-mid);
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .bdr-stat { display: flex; align-items: baseline; gap: 5px; }
+
+  .bdr-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--navy-mid);
+    line-height: 1;
+  }
+
+  .bdr-of { font-size: 12px; font-weight: 500; color: var(--muted); }
+
+  .bdr-bar-bg {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 7px;
+  }
+
+  .bdr-bar-fill {
+    height: 100%;
+    background: var(--lavender);
+    border-radius: 2px;
+    animation: grow .9s .5s cubic-bezier(.4,0,.2,1) both;
+    width: 0%;
+  }
+
+  /* Pipeline summary card */
+  .pipeline-card {
+    background: var(--navy);
+    border-radius: 13px;
+    padding: 12px 14px;
+    flex: 1;
+    animation: fadeUp .5s .33s ease both;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .pipeline-title {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    flex-shrink: 0;
+  }
+
+  .pipeline-deals {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .pipeline-deals::-webkit-scrollbar { display: none; }
+
+  .pipeline-deal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .pipeline-deal:last-child { border-bottom: none; }
+
+  .pipeline-deal-left { display: flex; flex-direction: column; gap: 1px; }
+
+  .pipeline-deal-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+  }
+
+  .pipeline-deal-owner {
+    font-size: 9px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .pipeline-deal-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: #7B9AFF;
+    flex-shrink: 0;
+  }
+
+  /* ── CTA BAR ── */
+  .cta-bar {
+    background: var(--navy);
+    border-radius: 11px;
+    padding: 10px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    animation: fadeUp .5s .4s ease both;
+    flex-shrink: 0;
+  }
+
+  .cta-icon { font-size: 18px; flex-shrink: 0; }
+
+  .cta-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    color: white;
+    font-weight: 400;
+  }
+
+  .cta-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.36);
+    margin-top: 1px;
+  }
+
+  .cta-pill {
+    margin-left: auto;
+    background: var(--blue);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 24px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo-area">
+      <div class="yotpo-wordmark">yotpo.</div>
+      <div class="divider-v"></div>
+      <div class="header-title">ANZ Q1 <em>Final Push</em></div>
+    </div>
+    <div class="header-right">
+      <div class="meta-chip">Week of 23 Mar 2026</div>
+      <div class="meta-chip">Last week of quarter</div>
+      <div class="live-chip"><div class="pulse"></div> LIVE</div>
+    </div>
+  </div>
+
+  <!-- SCOREBOARD -->
+  <div class="scoreboard">
+    <div class="score-metric">
+      <div class="score-label">Closed Won</div>
+      <div class="score-value green">$229K</div>
+      <div class="score-bar"><div class="score-bar-fill" style="--w:57%; background:#5ED4A8;"></div></div>
+      <div class="score-sub highlight">57% of stretch</div>
+    </div>
+    <div class="score-metric">
+      <div class="score-label">Committed</div>
+      <div class="score-value blue">$335K</div>
+      <div class="score-bar"><div class="score-bar-fill" style="--w:84%; background:#7B9AFF;"></div></div>
+      <div class="score-sub">84% of stretch</div>
+    </div>
+    <div class="score-metric">
+      <div class="score-label">Open Pipeline</div>
+      <div class="score-value sky">$324K</div>
+      <div class="score-bar"><div class="score-bar-fill" style="--w:100%; background:#8ECFF5;"></div></div>
+      <div class="score-sub">19 deals in play</div>
+    </div>
+    <div class="score-metric">
+      <div class="score-label">Stretch Goal</div>
+      <div class="score-value" style="color:rgba(255,255,255,0.7)">$400K</div>
+      <div class="score-sub">Need $171K more</div>
+    </div>
+    <div class="score-metric">
+      <div class="score-label">Q1 Goal</div>
+      <div class="score-value muted">$600K</div>
+      <div class="score-sub">Long range target</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM: 3 AE cards + right panel -->
+  <div class="bottom">
+
+    <!-- SASHA -->
+    <div class="ae-card green">
+      <div class="ae-top-stripe"></div>
+      <div class="ae-header">
+        <div class="ae-name">Sasha 🔥</div>
+        <div class="ae-role-badge">AE</div>
+      </div>
+      <div class="ae-stats">
+        <div class="ae-closed">$142K</div>
+        <div class="ae-pct"><strong>84%</strong> to goal</div>
+      </div>
+      <div class="ae-bar-bg"><div class="ae-bar-fill" style="--w:84%"></div></div>
+      <div class="ae-deals-label">Open deals</div>
+      <div class="ae-deals">
+        <div class="ae-deal"><span class="ae-deal-name">The Wiggles</span><span class="ae-deal-val">$14.1K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Biomiq</span><span class="ae-deal-val">$12.4K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Hismile Colombia</span><span class="ae-deal-val">$11.3K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Mirror Mirror Boutique</span><span class="ae-deal-val">$8.5K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Repertoire.co.nz</span><span class="ae-deal-val">$7.1K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Madd Gear</span><span class="ae-deal-val">$2.0K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Liberty Belle Skin Centre</span><span class="ae-deal-val">$1.5K</span></div>
+      </div>
+    </div>
+
+    <!-- ELLIE -->
+    <div class="ae-card red">
+      <div class="ae-top-stripe"></div>
+      <div class="ae-header">
+        <div class="ae-name">Ellie 💪</div>
+        <div class="ae-role-badge">AE</div>
+      </div>
+      <div class="ae-stats">
+        <div class="ae-closed">$12K</div>
+        <div class="ae-pct"><strong>12%</strong> to goal</div>
+      </div>
+      <div class="ae-bar-bg"><div class="ae-bar-fill" style="--w:12%"></div></div>
+      <div class="ae-deals-label">Open deals</div>
+      <div class="ae-deals">
+        <div class="ae-deal"><span class="ae-deal-name">King Living</span><span class="ae-deal-val">$39.6K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Stateside Sports</span><span class="ae-deal-val">$26.9K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Directed Electronics</span><span class="ae-deal-val">$14.4K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Vision Brands Group</span><span class="ae-deal-val">$14.4K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Auto One Australia</span><span class="ae-deal-val">$10.3K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Zulu &amp; Zephyr</span><span class="ae-deal-val">$10.0K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Orbitkey</span><span class="ae-deal-val">$9.3K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Oli Clothing – Loyalty</span><span class="ae-deal-val">$9.1K</span></div>
+      </div>
+    </div>
+
+    <!-- SILVIA -->
+    <div class="ae-card amber">
+      <div class="ae-top-stripe"></div>
+      <div class="ae-header">
+        <div class="ae-name">Silvia ⚡</div>
+        <div class="ae-role-badge">AE</div>
+      </div>
+      <div class="ae-stats">
+        <div class="ae-closed">$70K</div>
+        <div class="ae-pct"><strong>33%</strong> to goal</div>
+      </div>
+      <div class="ae-bar-bg"><div class="ae-bar-fill" style="--w:33%"></div></div>
+      <div class="ae-deals-label">Open deals</div>
+      <div class="ae-deals">
+        <div class="ae-deal"><span class="ae-deal-name">Hello Molly Fashion</span><span class="ae-deal-val">$65.8K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Hairhouse</span><span class="ae-deal-val">$36.5K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Flexispot</span><span class="ae-deal-val">$17.1K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Eckersley's Art &amp; Craft</span><span class="ae-deal-val">$13.9K</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+      <!-- Mitch BDR -->
+      <div class="bdr-card">
+        <div class="bdr-header">
+          <div class="bdr-name">Mitch <span style="font-size:11px; font-weight:500; color:var(--muted);">BDR</span></div>
+          <div class="bdr-badge">92% TO POINTS GOAL</div>
+        </div>
+        <div class="bdr-stat">
+          <div class="bdr-num">46</div>
+          <div class="bdr-of">pts / 50 goal</div>
+        </div>
+        <div class="bdr-bar-bg"><div class="bdr-bar-fill" style="--w:92%"></div></div>
+      </div>
+
+      <!-- Top open deals (cross-team priority list) -->
+      <div class="pipeline-card">
+        <div class="pipeline-title">🎯 &nbsp;Priority closes this week</div>
+        <div class="pipeline-deals">
+          <div class="pipeline-deal">
+            <div class="pipeline-deal-left">
+              <div class="pipeline-deal-name">Hello Molly</div>
+              <div class="pipeline-deal-owner">Silvia · Loyalty</div>
+            </div>
+            <div class="pipeline-deal-val">$65.8K</div>
+          </div>
+          <div class="pipeline-deal">
+            <div class="pipeline-deal-left">
+              <div class="pipeline-deal-name">King Living</div>
+              <div class="pipeline-deal-owner">Ellie · Reviews</div>
+            </div>
+            <div class="pipeline-deal-val">$39.6K</div>
+          </div>
+          <div class="pipeline-deal">
+            <div class="pipeline-deal-left">
+              <div class="pipeline-deal-name">Hairhouse</div>
+              <div class="pipeline-deal-owner">Silvia · Loyalty</div>
+            </div>
+            <div class="pipeline-deal-val">$36.5K</div>
+          </div>
+          <div class="pipeline-deal">
+            <div class="pipeline-deal-left">
+              <div class="pipeline-deal-name">Stateside Sports</div>
+              <div class="pipeline-deal-owner">Ellie · Loyalty</div>
+            </div>
+            <div class="pipeline-deal-val">$26.9K</div>
+          </div>
+          <div class="pipeline-deal">
+            <div class="pipeline-deal-left">
+              <div class="pipeline-deal-name">Flexispot</div>
+              <div class="pipeline-deal-owner">Silvia · Reviews</div>
+            </div>
+            <div class="pipeline-deal-val">$17.1K</div>
+          </div>
+          <div class="pipeline-deal">
+            <div class="pipeline-deal-left">
+              <div class="pipeline-deal-name">Directed Electronics</div>
+              <div class="pipeline-deal-owner">Ellie · Reviews</div>
+            </div>
+            <div class="pipeline-deal-val">$14.4K</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA BAR -->
+  <div class="cta-bar">
+    <div class="cta-icon">🏁</div>
+    <div>
+      <div class="cta-text">Everyone gets behind the team this week. Every intro, every reference, every nudge counts.</div>
+      <div class="cta-sub">Stretch: $400K &nbsp;·&nbsp; Need $171K &nbsp;·&nbsp; $324K of pipeline in play &nbsp;·&nbsp; This is absolutely on</div>
+    </div>
+    <div class="cta-pill">LAST WEEK OF Q1</div>
+  </div>
+
+</div>
+</body>
+</html>
