@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="refresh" content="300">
-<title>Q1 Final Push – Yotpo ANZ</title>
+<title>Q2 Leaderboard – Yotpo ANZ</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -294,6 +294,7 @@
     flex-shrink: 0;
   }
 
+  /* Scrollable deal list */
   .ae-deals {
     display: flex;
     flex-direction: column;
@@ -358,7 +359,7 @@
     position: absolute;
     top: 0; left: 14px; right: 14px;
     height: 2px;
-    background: var(--mint);
+    background: var(--lavender);
     border-radius: 0 0 2px 2px;
   }
 
@@ -373,8 +374,8 @@
   .bdr-name { font-size: 14px; font-weight: 700; color: var(--navy); }
 
   .bdr-badge {
-    background: var(--mint-lt);
-    color: var(--green);
+    background: var(--lavender-lt);
+    color: var(--navy-mid);
     font-size: 8px;
     font-weight: 700;
     padding: 2px 8px;
@@ -387,7 +388,7 @@
   .bdr-num {
     font-family: 'DM Serif Display', serif;
     font-size: 32px;
-    color: var(--green);
+    color: var(--navy-mid);
     line-height: 1;
   }
 
@@ -403,12 +404,13 @@
 
   .bdr-bar-fill {
     height: 100%;
-    background: var(--mint);
+    background: var(--lavender);
     border-radius: 2px;
     animation: grow .9s .5s cubic-bezier(.4,0,.2,1) both;
     width: 0%;
   }
 
+  /* Pipeline summary card */
   .pipeline-card {
     background: var(--navy);
     border-radius: 13px;
@@ -529,11 +531,11 @@
     <div class="logo-area">
       <div class="yotpo-wordmark">yotpo.</div>
       <div class="divider-v"></div>
-      <div class="header-title">ANZ Q1 <em>Final Push</em></div>
+      <div class="header-title">ANZ Q2 <em>Leaderboard</em></div>
     </div>
     <div class="header-right">
-      <div class="meta-chip">Week of 23 Mar 2026</div>
-      <div class="meta-chip">Last week of quarter</div>
+      <div class="meta-chip">Week of 14 Apr 2026</div>
+      <div class="meta-chip">Q2 underway</div>
       <div class="live-chip"><div class="pulse"></div> LIVE</div>
     </div>
   </div>
@@ -542,31 +544,31 @@
   <div class="scoreboard">
     <div class="score-metric">
       <div class="score-label">Closed Won</div>
-      <div class="score-value green">$273K</div>
-      <div class="score-bar"><div class="score-bar-fill" style="--w:68%; background:#5ED4A8;"></div></div>
-      <div class="score-sub highlight">68% of stretch</div>
+      <div class="score-value green">$22K</div>
+      <div class="score-bar"><div class="score-bar-fill" style="--w:4%; background:#5ED4A8;"></div></div>
+      <div class="score-sub highlight">4% of Q2 goal</div>
     </div>
     <div class="score-metric">
-      <div class="score-label">Committed</div>
-      <div class="score-value blue">$335K</div>
-      <div class="score-bar"><div class="score-bar-fill" style="--w:84%; background:#7B9AFF;"></div></div>
-      <div class="score-sub">$62K to commit</div>
+      <div class="score-label">Q2 Goal</div>
+      <div class="score-value blue">$600K</div>
+      <div class="score-bar"><div class="score-bar-fill" style="--w:100%; background:#7B9AFF;"></div></div>
+      <div class="score-sub">Full team target</div>
     </div>
     <div class="score-metric">
       <div class="score-label">Open Pipeline</div>
-      <div class="score-value sky">$181K</div>
+      <div class="score-value sky">$685K</div>
       <div class="score-bar"><div class="score-bar-fill" style="--w:100%; background:#8ECFF5;"></div></div>
-      <div class="score-sub">8 deals in play</div>
+      <div class="score-sub">36 deals in play</div>
     </div>
     <div class="score-metric">
-      <div class="score-label">Stretch Goal</div>
-      <div class="score-value" style="color:rgba(255,255,255,0.7)">$400K</div>
-      <div class="score-sub">$127K to stretch</div>
+      <div class="score-label">Open Deals</div>
+      <div class="score-value" style="color:rgba(255,255,255,0.7)">36</div>
+      <div class="score-sub">across 3 AEs</div>
     </div>
     <div class="score-metric">
-      <div class="score-label">Q1 Goal</div>
-      <div class="score-value muted">$600K</div>
-      <div class="score-sub">Long range target</div>
+      <div class="score-label">Need to Close</div>
+      <div class="score-value muted">$578K</div>
+      <div class="score-sub">remaining to goal</div>
     </div>
   </div>
 
@@ -581,16 +583,23 @@
         <div class="ae-role-badge">AE</div>
       </div>
       <div class="ae-stats">
-        <div class="ae-closed">$156K</div>
-        <div class="ae-pct"><strong>92%</strong> to goal</div>
+        <div class="ae-closed">$22K</div>
+        <div class="ae-pct"><strong>13%</strong> to goal</div>
       </div>
-      <div class="ae-bar-bg"><div class="ae-bar-fill" style="--w:92%"></div></div>
-      <div class="ae-deals-label">Open deals</div>
+      <div class="ae-bar-bg"><div class="ae-bar-fill" style="--w:13%"></div></div>
+      <div class="ae-deals-label">Open deals (11)</div>
       <div class="ae-deals">
-        <div class="ae-deal"><span class="ae-deal-name">The Wiggles</span><span class="ae-deal-val">$14.1K</span></div>
-        <div class="ae-deal"><span class="ae-deal-name">Biomiq</span><span class="ae-deal-val">$12.4K</span></div>
-        <div class="ae-deal"><span class="ae-deal-name">Fossil India</span><span class="ae-deal-val">$9.0K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Nikon Australia</span><span class="ae-deal-val">$17.2K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Subo Products</span><span class="ae-deal-val">$11.4K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Stratco.com.au</span><span class="ae-deal-val">$10.8K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Godiva Australia</span><span class="ae-deal-val">$10.6K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Coopers DIY</span><span class="ae-deal-val">$8.4K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Brewart</span><span class="ae-deal-val">$8.4K</span></div>
         <div class="ae-deal"><span class="ae-deal-name">Mirror Mirror Boutique</span><span class="ae-deal-val">$8.4K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">NSW CPAP</span><span class="ae-deal-val">$7.5K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Fossil India</span><span class="ae-deal-val">$7.2K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">AllthreadsEmbroidery</span><span class="ae-deal-val">$6.7K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Jagger and Stone</span><span class="ae-deal-val">$6.4K</span></div>
       </div>
     </div>
 
@@ -602,14 +611,24 @@
         <div class="ae-role-badge">AE</div>
       </div>
       <div class="ae-stats">
-        <div class="ae-closed">$26K</div>
-        <div class="ae-pct"><strong>26%</strong> to goal</div>
+        <div class="ae-closed">$0</div>
+        <div class="ae-pct"><strong>0%</strong> to goal</div>
       </div>
-      <div class="ae-bar-bg"><div class="ae-bar-fill" style="--w:26%"></div></div>
-      <div class="ae-deals-label">Open deals</div>
+      <div class="ae-bar-bg"><div class="ae-bar-fill" style="--w:0%"></div></div>
+      <div class="ae-deals-label">Open deals (12)</div>
       <div class="ae-deals">
-        <div class="ae-deal"><span class="ae-deal-name">Kidstuff Pty Ltd</span><span class="ae-deal-val">$28.9K</span></div>
-        <div class="ae-deal"><span class="ae-deal-name">Alpine Spas</span><span class="ae-deal-val">$9.7K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">King Living</span><span class="ae-deal-val">$38.5K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Train Without Limits</span><span class="ae-deal-val">$22.4K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Swanndri</span><span class="ae-deal-val">$20.8K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Treasury Wine Estates</span><span class="ae-deal-val">$19.1K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Vision Brands Group</span><span class="ae-deal-val">$14.0K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Fixmycurls.com</span><span class="ae-deal-val">$13.2K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">The Oodie</span><span class="ae-deal-val">$12.4K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Zulu &amp; Zephyr</span><span class="ae-deal-val">$9.7K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Brunae Body</span><span class="ae-deal-val">$9.5K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Oli Clothing – Loyalty</span><span class="ae-deal-val">$8.9K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Japanese Taste</span><span class="ae-deal-val">$0</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Milwaukee Boot Co.</span><span class="ae-deal-val">$0</span></div>
       </div>
     </div>
 
@@ -621,14 +640,25 @@
         <div class="ae-role-badge">AE</div>
       </div>
       <div class="ae-stats">
-        <div class="ae-closed">$87K</div>
-        <div class="ae-pct"><strong>41%</strong> to goal</div>
+        <div class="ae-closed">$0</div>
+        <div class="ae-pct"><strong>0%</strong> to goal</div>
       </div>
-      <div class="ae-bar-bg"><div class="ae-bar-fill" style="--w:41%"></div></div>
-      <div class="ae-deals-label">Open deals</div>
+      <div class="ae-bar-bg"><div class="ae-bar-fill" style="--w:0%"></div></div>
+      <div class="ae-deals-label">Open deals (13)</div>
       <div class="ae-deals">
-        <div class="ae-deal"><span class="ae-deal-name">Hello Molly Fashion</span><span class="ae-deal-val">$65.8K</span></div>
-        <div class="ae-deal"><span class="ae-deal-name">Hairhouse</span><span class="ae-deal-val">$32.9K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Glassons Australia</span><span class="ae-deal-val">$72.8K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Hello Molly Fashion</span><span class="ae-deal-val">$67.8K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Elite Eleven Sporting</span><span class="ae-deal-val">$60.0K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Hairhouse</span><span class="ae-deal-val">$32.6K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Khaadi</span><span class="ae-deal-val">$29.6K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Dinner Ladies</span><span class="ae-deal-val">$28.6K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Topologie.com</span><span class="ae-deal-val">$25.4K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">The Upside</span><span class="ae-deal-val">$22.1K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">OutsideSports NZ</span><span class="ae-deal-val">$20.1K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Sabbi.com.au</span><span class="ae-deal-val">$16.3K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">Ksubi</span><span class="ae-deal-val">$15.0K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">P.E Nation</span><span class="ae-deal-val">$14.0K</span></div>
+        <div class="ae-deal"><span class="ae-deal-name">St. Ali Coffee</span><span class="ae-deal-val">$9.2K</span></div>
       </div>
     </div>
 
@@ -639,60 +669,60 @@
       <div class="bdr-card">
         <div class="bdr-header">
           <div class="bdr-name">Mitch <span style="font-size:11px; font-weight:500; color:var(--muted);">BDR</span></div>
-          <div class="bdr-badge">110% TO POINTS GOAL 🎉</div>
+          <div class="bdr-badge">6% TO POINTS GOAL</div>
         </div>
         <div class="bdr-stat">
-          <div class="bdr-num">55</div>
+          <div class="bdr-num">3</div>
           <div class="bdr-of">pts / 50 goal</div>
         </div>
-        <div class="bdr-bar-bg"><div class="bdr-bar-fill" style="--w:100%"></div></div>
+        <div class="bdr-bar-bg"><div class="bdr-bar-fill" style="--w:6%"></div></div>
       </div>
 
-      <!-- Priority closes -->
+      <!-- Top open deals (cross-team priority list) -->
       <div class="pipeline-card">
         <div class="pipeline-title">🎯 &nbsp;Priority closes this week</div>
         <div class="pipeline-deals">
           <div class="pipeline-deal">
             <div class="pipeline-deal-left">
-              <div class="pipeline-deal-name">Hello Molly</div>
+              <div class="pipeline-deal-name">Glassons Australia</div>
+              <div class="pipeline-deal-owner">Silvia · Reviews</div>
+            </div>
+            <div class="pipeline-deal-val">$72.8K</div>
+          </div>
+          <div class="pipeline-deal">
+            <div class="pipeline-deal-left">
+              <div class="pipeline-deal-name">Hello Molly Fashion</div>
               <div class="pipeline-deal-owner">Silvia · Loyalty</div>
             </div>
-            <div class="pipeline-deal-val">$65.8K</div>
+            <div class="pipeline-deal-val">$67.8K</div>
+          </div>
+          <div class="pipeline-deal">
+            <div class="pipeline-deal-left">
+              <div class="pipeline-deal-name">Elite Eleven Sporting</div>
+              <div class="pipeline-deal-owner">Silvia · Loyalty</div>
+            </div>
+            <div class="pipeline-deal-val">$60.0K</div>
+          </div>
+          <div class="pipeline-deal">
+            <div class="pipeline-deal-left">
+              <div class="pipeline-deal-name">King Living</div>
+              <div class="pipeline-deal-owner">Ellie · Reviews</div>
+            </div>
+            <div class="pipeline-deal-val">$38.5K</div>
           </div>
           <div class="pipeline-deal">
             <div class="pipeline-deal-left">
               <div class="pipeline-deal-name">Hairhouse</div>
               <div class="pipeline-deal-owner">Silvia · Loyalty</div>
             </div>
-            <div class="pipeline-deal-val">$32.9K</div>
+            <div class="pipeline-deal-val">$32.6K</div>
           </div>
           <div class="pipeline-deal">
             <div class="pipeline-deal-left">
-              <div class="pipeline-deal-name">Kidstuff Pty Ltd</div>
-              <div class="pipeline-deal-owner">Ellie · Loyalty</div>
+              <div class="pipeline-deal-name">Khaadi</div>
+              <div class="pipeline-deal-owner">Silvia · Loyalty</div>
             </div>
-            <div class="pipeline-deal-val">$28.9K</div>
-          </div>
-          <div class="pipeline-deal">
-            <div class="pipeline-deal-left">
-              <div class="pipeline-deal-name">The Wiggles</div>
-              <div class="pipeline-deal-owner">Sasha · Reviews</div>
-            </div>
-            <div class="pipeline-deal-val">$14.1K</div>
-          </div>
-          <div class="pipeline-deal">
-            <div class="pipeline-deal-left">
-              <div class="pipeline-deal-name">Biomiq</div>
-              <div class="pipeline-deal-owner">Sasha · Reviews</div>
-            </div>
-            <div class="pipeline-deal-val">$12.4K</div>
-          </div>
-          <div class="pipeline-deal">
-            <div class="pipeline-deal-left">
-              <div class="pipeline-deal-name">Alpine Spas</div>
-              <div class="pipeline-deal-owner">Ellie · Reviews</div>
-            </div>
-            <div class="pipeline-deal-val">$9.7K</div>
+            <div class="pipeline-deal-val">$29.6K</div>
           </div>
         </div>
       </div>
@@ -702,12 +732,12 @@
 
   <!-- CTA BAR -->
   <div class="cta-bar">
-    <div class="cta-icon">🏁</div>
+    <div class="cta-icon">🚀</div>
     <div>
-      <div class="cta-text">Everyone gets behind the team this week. Every intro, every reference, every nudge counts.</div>
-      <div class="cta-sub">Stretch: $400K &nbsp;·&nbsp; Need $127K to stretch &nbsp;·&nbsp; Need $62K to commit &nbsp;·&nbsp; $181K of pipeline in play</div>
+      <div class="cta-text">Q2 is live. $685K of pipeline in play — time to convert early and build momentum.</div>
+      <div class="cta-sub">Q2 Goal: $600K &nbsp;·&nbsp; Closed Won: $22K &nbsp;·&nbsp; 36 deals open across the team &nbsp;·&nbsp; Let's go</div>
     </div>
-    <div class="cta-pill">LAST WEEK OF Q1</div>
+    <div class="cta-pill">Q2 WEEK 2</div>
   </div>
 
 </div>
